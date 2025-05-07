@@ -1,0 +1,278 @@
+:root {
+    --color-primary: #4a76e8;
+    --color-text: #333;
+    --color-text-light: #666;
+    --color-background: #fff;
+    --color-border: #eaeaea;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 20px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    max-width: 800px;
+    line-height: 1.4;
+}
+
+h3 {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+/* Header */
+header {
+    padding: 80px 0;
+}
+
+.header-content {
+    max-width: 800px;
+}
+
+.wave-emoji, .avatar-emoji {
+    font-style: normal;
+}
+
+.contact {
+    margin-top: 40px;
+}
+
+.point-emoji {
+    font-style: normal;
+    margin-right: 10px;
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.section-content {
+    max-width: 800px;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    margin-bottom: 10px;
+}
+
+/* Experience */
+.experience-list {
+    max-width: 800px;
+}
+
+.experience-item {
+    margin-bottom: 40px;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.experience-date {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.experience-title {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+.project-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.project-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-tech {
+    margin-top: 20px;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Other Projects */
+.other-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.other-project-item {
+    padding: 25px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.other-project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.project-link {
+    margin-left: 8px;
+}
+
+/* Footer */
+footer {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-border);
+    margin-top: 80px;
+}
+
+.footer-links a {
+    margin-left: 20px;
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    header {
+        padding: 60px 0;
+    }
+    
+    .project-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .other-projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-links {
+        margin-top: 20px;
+    }
+    
+    .footer-links a {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #e0e0e0;
+        --color-text-light: #999;
+        --color-background: #121212;
+        --color-border: #2a2a2a;
+    }
+    
+    .tech-tag {
+        background: #2a2a2a;
+    }
+}

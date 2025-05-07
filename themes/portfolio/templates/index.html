@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <div class="header-content">
+        <h1>Hello! <span class="wave-emoji">👋</span></h1>
+        <h2>I'm {{ AUTHOR }}, a design-minded front-end software engineer focused on building beautiful interfaces & experiences <span class="avatar-emoji">🧑‍💻</span></h2>
+        
+        <div class="contact">
+            <p>Get in touch <span class="point-emoji">👉</span> 
+            {% for name, link in SOCIAL %}
+                {% if name == 'email' %}
+                    <a href="{{ link }}">{{ link.replace('mailto:', '') }}</a>
+                {% endif %}
+            {% endfor %}
+            </p>
+        </div>
+    </div>
+</header>
+
+<section id="background">
+    <h3>BACKGROUND</h3>
+    <div class="section-content">
+        <p>{{ BACKGROUND }}</p>
+        
+        <div class="bio">
+            <p>{{ ABOUT }}</p>
+            <p>{{ INTERESTS }}</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h3>SKILLS</h3>
+    <div class="skills-grid">
+        {% for category, items in SKILLS.items() %}
+        <div class="skill-category">
+            <h4>{{ category }}</h4>
+            <ul>
+                {% for item in items %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="experience">
+    <h3>EXPERIENCE</h3>
+    <div class="experience-list">
+        {% for job in EXPERIENCE %}
+        <div class="experience-item">
+            <div class="experience-header">
+                <h4>{{ job.company }}</h4>
+                <span class="experience-date">{{ job.period }}</span>
+            </div>
+            <p class="experience-title">{{ job.position }}</p>
+            {% if job.description %}
+            <p class="experience-description">{{ job.description }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="featured-projects">
+    <h3>FEATURED PROJECTS</h3>
+    <div class="projects-grid">
+        {% for project in PROJECTS %}
+        <div class="project-item">
+            <div class="project-image">
+                <img src="{{ SITEURL }}/{{ project.image }}" alt="{{ project.title }}">
+            </div>
+            <div class="project-content">
+                <h4>{{ project.title }}</h4>
+                <p>{{ project.description }}</p>
+                <div class="project-tech">
+                    {% for tech in project.tech %}
+                    <span class="tech-tag">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="other-projects">
+    <h3>OTHER PROJECTS</h3>
+    <div class="other-projects-grid">
+        {% for project in OTHER_PROJECTS %}
+        <div class="other-project-item">
+            <div class="other-project-header">
+                <h4>{{ project.title }} <a href="{{ project.link }}" class="project-link">→</a></h4>
+            </div>
+            <p>{{ project.description }}</p>
+            <div class="project-tech">
+                {% for tech in project.tech %}
+                <span class="tech-tag">{{ tech }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

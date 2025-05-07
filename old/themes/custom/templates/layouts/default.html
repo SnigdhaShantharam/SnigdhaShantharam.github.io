@@ -1,0 +1,14 @@
+{% extends "compress.html" %}
+
+{% block content %}
+  <!DOCTYPE html>
+  <html>
+  <head>
+    {% include 'head.html' %}
+  </head>
+  <body>
+    {{ content }}
+    {% include 'scripts.html' %}
+  </body>
+  </html>
+{% endblock %}

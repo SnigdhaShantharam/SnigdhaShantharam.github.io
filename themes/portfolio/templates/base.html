@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}{{ SITENAME }} - Portfolio Website{% endblock %}">
+    
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ SITEURL }}/theme/images/favicon.png">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+        
+        <footer>
+            <div class="footer-credit">
+                <p>Designed & Developed by {{ AUTHOR }} ✌️ {{ SITENAME|default('2023') }}</p>
+            </div>
+            <div class="footer-links">
+                {% if SOCIAL %}
+                    {% for name, link in SOCIAL %}
+                        <a href="{{ link }}" target="_blank" rel="noopener noreferrer">{{ name|upper }}</a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="{{ SITEURL }}/theme/js/main.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
